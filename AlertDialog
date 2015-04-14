@@ -1,0 +1,14 @@
+
+		// TODO Auto-generated method stub
+
+		AlertDialog alertDialog = new AlertDialog.Builder(
+				NewAbsenceListDetails.this).create();
+		alertDialog.setTitle("ABC");
+		alertDialog.setMessage(msg);
+		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		});
+		alertDialog.show();
+	
