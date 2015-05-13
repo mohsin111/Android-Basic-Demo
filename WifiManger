@@ -1,0 +1,4 @@
+	WifiManager wm = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		WifiLock wifiLock = wm.createWifiLock(WifiManager.WIFI_MODE_FULL,
+				"MyWifiLock");
+		wifiLock.acquire();
