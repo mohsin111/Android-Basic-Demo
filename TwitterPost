@@ -1,1 +1,31 @@
 
+Intent tweetIntent = new Intent(Intent.ACTION_SEND);
+				tweetIntent
+						.putExtra(Intent.EXTRA_TEXT,
+								"Abc");
+				tweetIntent.setType("text/plain");
+
+				PackageManager packManager = getPackageManager();
+				List<ResolveInfo> resolvedInfoList = packManager
+						.queryIntentActivities(tweetIntent,
+								PackageManager.MATCH_DEFAULT_ONLY);
+
+				boolean resolved = false;
+				for (ResolveInfo resolveInfo : resolvedInfoList) {
+					if (resolveInfo.activityInfo.packageName
+							.startsWith("com.twitter.android")) {
+						tweetIntent.setClassName(
+								resolveInfo.activityInfo.packageName,
+								resolveInfo.activityInfo.name);
+						resolved = true;
+						break;
+					}
+				}
+				if (resolved) {
+					startActivity(tweetIntent);
+				} else {
+					Toast.makeText(CreatePoll.this, "Twitter app isn't found",
+							Toast.LENGTH_LONG).show();
+				}
+
+			}
