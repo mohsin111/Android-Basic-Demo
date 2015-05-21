@@ -1,0 +1,236 @@
+package com.example.animation;
+
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+public class MainAnimation extends SurfaceView implements
+		SurfaceHolder.Callback {
+
+	public static Bitmap backGround;
+	private Bitmap backGround1;
+	private Bitmap backGround2;
+	private Bitmap backGround3;
+	private Bitmap backGround4;
+	private Bitmap backGround5;
+	private Bitmap backGround6;
+	private Bitmap backGround7;
+	private Bitmap backGround8;
+	private Bitmap backGround9;
+	private Bitmap backGround10;
+	private Bitmap backGround11;
+	private Bitmap backGround12;
+
+	private int mBGFarMoveY = -100;
+	private int mBGFarMoveY1 = -200;
+	private int mBGFarMoveY2 = -200;
+	private int mBGFarMoveY3 = -200;
+	private int mBGFarMoveY4 = -400;
+	private int mBGFarMoveY5 = -500;
+	private int mBGFarMoveY6 = -600;
+	private int mBGFarMoveY7 = -700;
+	private int mBGFarMoveY8 = -800;
+	private int mBGFarMoveY9 = -900;
+	private int mBGFarMoveY10 = -1000;
+	private int mBGFarMoveY11 = -1100;
+	private int mBGFarMoveY12 = -1200;
+
+	int height;
+	ImageView img = new ImageView(getContext());
+
+	public MainAnimation(Context context) {
+		super(context);
+		DisplayMetrics displayMetrics = context.getResources()
+				.getDisplayMetrics();
+
+		int width = displayMetrics.widthPixels;
+		height = displayMetrics.heightPixels;
+
+		backGround = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.circle_green);
+
+		backGround1 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.circle_128);
+
+		backGround2 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.smily3);
+
+		backGround3 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.smily8);
+
+		backGround4 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.smily);
+
+		backGround5 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.smily5);
+
+		backGround6 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.smily6);
+
+		backGround7 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.smily7);
+
+		backGround8 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.smily8);
+
+		backGround9 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.smily1);
+
+		backGround10 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.circle_128);
+		backGround11 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.circle_green);
+		backGround12 = BitmapFactory.decodeResource(context.getResources(),
+				R.drawable.smily4);
+		setWillNotDraw(false);
+
+	}
+
+	@Override
+	protected void onDraw(Canvas canvas) {
+		super.onDraw(canvas);
+		doDrawRunning(canvas);
+
+	}
+
+	@Override
+	public void surfaceChanged(SurfaceHolder holder, int format, int width,
+			int height) {
+
+	}
+
+	@Override
+	public void surfaceCreated(SurfaceHolder holder) {
+
+	}
+
+	@Override
+	public void surfaceDestroyed(SurfaceHolder holder) {
+
+	}
+
+	private void doDrawRunning(Canvas canvas) {
+
+		if (mBGFarMoveY == height)
+			mBGFarMoveY = -100;
+		if (mBGFarMoveY1 == height)
+			mBGFarMoveY1 = -100;
+		if (mBGFarMoveY2 == height)
+			mBGFarMoveY2 = -100;
+		if (mBGFarMoveY3 == height)
+			mBGFarMoveY3 = -100;
+		if (mBGFarMoveY4 == height)
+			mBGFarMoveY4 = -100;
+		if (mBGFarMoveY5 == height)
+			mBGFarMoveY5 = -100;
+		if (mBGFarMoveY6 == height)
+			mBGFarMoveY6 = -100;
+		if (mBGFarMoveY7 == height)
+			mBGFarMoveY7 = -100;
+		if (mBGFarMoveY8 == height)
+			mBGFarMoveY8 = -100;
+		if (mBGFarMoveY9 == height)
+			mBGFarMoveY9 = -100;
+		if (mBGFarMoveY10 == height)
+			mBGFarMoveY10 = -100;
+		if (mBGFarMoveY11 == height)
+			mBGFarMoveY11 = -100;
+		if (mBGFarMoveY12 == height)
+			mBGFarMoveY12 = -100;
+
+		canvas.drawBitmap(backGround, getLeft(), mBGFarMoveY, null);
+		canvas.drawBitmap(backGround1, 200, mBGFarMoveY1, null);
+		canvas.drawBitmap(backGround2, 400, mBGFarMoveY2, null);
+		canvas.drawBitmap(backGround3, 600, mBGFarMoveY3, null);
+		canvas.drawBitmap(backGround4, 400, mBGFarMoveY4, null);
+		canvas.drawBitmap(backGround5, 100, mBGFarMoveY5, null);
+		canvas.drawBitmap(backGround6, 300, mBGFarMoveY6, null);
+		canvas.drawBitmap(backGround7, getLeft(), mBGFarMoveY7, null);
+		canvas.drawBitmap(backGround8, 600, mBGFarMoveY8, null);
+		canvas.drawBitmap(backGround9, 300, mBGFarMoveY9, null);
+		canvas.drawBitmap(backGround10, 100, mBGFarMoveY10, null);
+		canvas.drawBitmap(backGround11, 600, mBGFarMoveY11, null);
+		canvas.drawBitmap(backGround12, getLeft(), mBGFarMoveY12, null);
+
+		mBGFarMoveY = mBGFarMoveY + 1;
+		mBGFarMoveY1 = mBGFarMoveY1 + 1;
+		mBGFarMoveY2 = mBGFarMoveY2 + 1;
+		mBGFarMoveY3 = mBGFarMoveY3 + 1;
+		mBGFarMoveY4 = mBGFarMoveY4 + 1;
+		mBGFarMoveY5 = mBGFarMoveY5 + 1;
+		mBGFarMoveY6 = mBGFarMoveY6 + 1;
+		mBGFarMoveY7 = mBGFarMoveY7 + 1;
+		mBGFarMoveY8 = mBGFarMoveY8 + 1;
+		mBGFarMoveY9 = mBGFarMoveY9 + 1;
+		mBGFarMoveY10 = mBGFarMoveY10 + 1;
+		mBGFarMoveY11 = mBGFarMoveY11 + 1;
+		mBGFarMoveY12 = mBGFarMoveY12 + 1;
+		invalidate();
+
+		// Attach the canvas to the ImageView
+		img.setImageDrawable(new BitmapDrawable(getResources(), backGround));
+
+		img.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(getContext(), "Hello", 10).show();
+			}
+		});
+
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		float x = event.getX();
+		float y = event.getY();
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+			// Check if the x and y position of the touch is inside the bitmap
+			if (x > 0 && x < 0 + 100 && y > mBGFarMoveY
+					&& y < mBGFarMoveY + 100) {
+				// Bitmap touched
+				Toast.makeText(getContext(), "Test1", 10).show();
+			}
+			// Check if the x and y position of the touch is inside the bitmap
+			if (x > 200 && x < 200 + 100 && y > mBGFarMoveY1
+					&& y < mBGFarMoveY1 + 100) {
+				// Bitmap touched
+				Toast.makeText(getContext(), "Test2", 10).show();
+			}
+
+			// Check if the x and y position of the touch is inside the bitmap
+			if (x > 400 && x < 400 + 100 && y > mBGFarMoveY2
+					&& y < mBGFarMoveY2 + 100) {
+				// Bitmap touched
+				Toast.makeText(getContext(), "Test3", 10).show();
+			}
+
+			// Check if the x and y position of the touch is inside the bitmap
+			if (x > 600 && x < 600 + 100 && y > mBGFarMoveY3
+					&& y < mBGFarMoveY3 + 100) {
+				// Bitmap touched
+				Toast.makeText(getContext(), "Test4", 10).show();
+			}
+			// Check if the x and y position of the touch is inside the bitmap
+			if (x > 400 && x < 400 + 100 && y > mBGFarMoveY4
+					&& y < mBGFarMoveY4 + 100) {
+				// Bitmap touched
+				Toast.makeText(getContext(), "Test5", 10).show();
+			}
+			return true;
+		}
+		return false;
+	}
+}
