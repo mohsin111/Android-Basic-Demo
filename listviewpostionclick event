@@ -1,0 +1,32 @@
+listiview_Category.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+
+				Intent i = new Intent(Category.this, VoteForPoll.class);
+				i.putExtra("poll_id", listCategory.get(position).getPoll_id());
+				i.putExtra("title", strtitle);
+				i.putExtra("first_option", listCategory.get(position)
+						.getFirst_option());
+				i.putExtra("second_option", listCategory.get(position)
+						.getSecond_option());
+				i.putExtra("profile_pic", listCategory.get(position)
+						.getProfile_pic());
+				i.putExtra("first_name", listCategory.get(position)
+						.getFirst_name());
+
+				Log.e("strPollId", "" + listCategory.get(position).getPoll_id());
+				Log.e("strtitle", "" + strtitle);
+				Log.e("strFirstoption", ""
+						+ listCategory.get(position).getFirst_option());
+				Log.e("strsecondOption", ""
+						+ listCategory.get(position).getSecond_option());
+				Log.e("strProfilePic", ""
+						+ listCategory.get(position).getProfile_pic());
+				Log.e("strFirstName", ""
+						+ listCategory.get(position).getFirst_name());
+				startActivity(i);
+			}
+		});
+	}
